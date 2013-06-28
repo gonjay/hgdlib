@@ -1,0 +1,89 @@
+<%= render 'layouts/header' %>
+<div class="mycontainer">
+	<h1 style="text-align: center;">湖北工业大学<br>图书搜索</h1>
+	<form action="<%= books_openlink_path %>" method="get" name="f" onsubmit="return chkForm(this)" id="f">    
+		<input style=";" type="text" size="45" name="strText" id="strText" value="">
+		<div style="margin-bottom: 10px">
+			<input type="submit" class="btn btn-primary" value=" 检 索 " size="30">
+			<input type="button" id="btnShowMore" onclick="showMore()" class="btn btn-success" value="更多限制" size="30">
+		</div>
+		<div class="search_bgimg"><select class="option" name="strSearchType" size="1" style="width:100px;">
+			<option value="title">题&nbsp;&nbsp;名</option>
+			<option value="author">责任者</option>
+			<option value="keyword">主题词</option>
+			<option value="isbn">ISBN/ISSN</option>
+			<option value="asordno">订购号</option>
+			<option value="coden">分类号</option>
+			<option value="callno">索书号</option>
+			<option value="publisher">出版社</option>
+			<option value="series">丛书名</option>
+			<option value="tpinyin">题名拼音</option>
+			<option value="apinyin">责任者拼音</option>
+		</select>
+		<select class="option" name="match_flag" size="1" style="width:100px;">
+			<option value="forward">前方一致</option>
+			<option value="full">完全匹配</option>
+			<option value="any">任意匹配</option>
+		</select>
+		<input type="hidden" id="historyCount" name="historyCount" value="1">
+
+		
+		<br>
+		<p><input type="radio" name="doctype" value="ALL" checked="checked">
+			所有书刊
+			<input type="radio" name="doctype" value="01">
+			中文图书
+			<input type="radio" name="doctype" value="02">
+			西文图书
+			<input type="radio" name="doctype" value="11">
+			中文期刊
+			<input type="radio" name="doctype" value="12">
+			西文期刊　　　
+		</p>
+		<div id="child1" class="childl" style="display: none;">
+			<p><strong>显示方式：</strong><select class="option" name="displaypg" size="1" style="width:100px;">
+				<option value="20">20条</option>
+				<option value="30">30条</option>
+				<option value="50">50条</option>
+				<option value="100">100条</option>
+			</select>    
+			<input type="radio" name="showmode" value="list" checked="checked">
+			详细显示
+			<input type="radio" name="showmode" value="table">
+			表格显示</p>
+			<p><strong>排序方式：</strong><select class="option" name="sort" size="1" style="width:100px;">
+				<option value="CATA_DATE">入藏日期</option>
+				<option value="M_TITLE">题&nbsp;&nbsp;名</option>
+				<option value="M_AUTHOR">责任者</option>
+				<option value="M_CALL_NO">索书号</option>
+				<option value="M_PUBLISHER">出版社</option>
+				<option value="M_PUB_YEAR">出版日期</option>
+			</select>
+			<input type="radio" name="orderby" value="asc">
+			升序排列
+			<input type="radio" name="orderby" value="desc" checked="checked">
+			降序排列</p>
+			<p><strong>检索范围：</strong><select class="option" id="location" name="location" size="1" style="width:100px;">
+				<option value="ALL">所有馆藏地</option>
+				<option value="00011">外文书库（工2-C座西大厅）</option>
+				<option value="00020">普通阅览室（工2-C座西大厅）</option>
+				<option value="00021">参考阅览室（本馆4楼）</option>
+				<option value="00023">中文现刊室（本馆2楼）</option>
+				<option value="00024">中文过刊室</option>
+				<option value="00025">外文期刊室</option>
+				<option value="00026">艺术建筑阅览室（本馆4楼）</option>
+				<option value="sksk ">社会科学书库（本馆5楼）</option>
+				<option value="xsk  ">新书库（本馆1楼）</option>
+				<option value="zhyls">综合阅览室（工2-C座西厅）</option>
+				<option value="zksk ">自然科学书库（本馆3楼）</option>
+			</select>
+		</p>
+	</form>
+	<footer><h4>MothinLab牛逼出品</h4></footer>
+</div>
+
+<script type="text/javascript">
+function showMore(){
+	$('#child1').toggle();
+}
+</script>

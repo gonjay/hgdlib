@@ -1,11 +1,15 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
-
+group :production do
+  gem 'mysql2'
+end
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'bootstrap-sass'
+gem 'nokogiri'
 
 
 # Gems used only for assets and not required

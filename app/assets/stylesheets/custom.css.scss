@@ -1,0 +1,32 @@
+@import "bootstrap";
+@import "bootstrap/responsive";
+
+.mycontainer{
+margin-top: 0px;
+padding: 20px;
+box-shadow: -1px 1px 9px #e2e2e2;
+background-color: #fff;
+}
+
+.card{
+padding: 20px;
+margin-top: 10px;
+box-shadow: -1px 1px 9px #e2e2e2;
+background-color: #fff;
+}
+
+
+.table-info{
+float: left;
+width: 50px;
+height: 20px;
+background-color: red;
+}
+
+.myspan2{
+width: 100px;
+//float: right;
+}
+
+//@media (max-width: 979px) and (min-width: 768px)
+

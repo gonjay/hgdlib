@@ -1,0 +1,15 @@
+<%= render 'layouts/header' %>
+<div class='row'>
+	<% @content.each do |book| %>
+	<div class='span4 card'>
+		<!-- <div class="row"> -->
+		<div class="myspan2"><%= image_tag(book.img_src, :size => "100x125" )%></div>
+		<div class="span4">
+			<h4><%= link_to book.name, 'http://202.114.181.3:8080/opac/' + book.id_code %></h4>
+			<p><%= book.index_number %></p>
+			<p><%= book.status %></p>
+		</div>
+		<!-- </div> -->
+	</div>
+	<% end %>
+</div>
