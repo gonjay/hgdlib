@@ -2,6 +2,7 @@
 @import "bootstrap/responsive";
 
 .mycontainer{
+text-align: center;
 margin-top: 0px;
 padding: 20px;
 box-shadow: -1px 1px 9px #e2e2e2;
@@ -9,6 +10,7 @@ background-color: #fff;
 }
 
 .card{
+text-align: center;
 padding: 20px;
 margin-top: 10px;
 box-shadow: -1px 1px 9px #e2e2e2;
@@ -25,7 +27,7 @@ background-color: red;
 
 .myspan2{
 width: 100px;
-//float: right;
+float: right;
 }
 
 //@media (max-width: 979px) and (min-width: 768px)
