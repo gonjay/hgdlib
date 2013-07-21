@@ -1,4 +1,7 @@
 Myblog::Application.routes.draw do
+  resources :posts
+
+
   resources :blogs
   root to: 'books#index'
   get 'books/openlink', controller: 'books'
