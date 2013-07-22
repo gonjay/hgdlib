@@ -1,6 +1,7 @@
 Myblog::Application.routes.draw do
   resources :posts
 
+  resources :robots
 
   resources :blogs
   root to: 'books#index'
