@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20130720082527) do
     t.string   "time"
     t.text     "content"
     t.string   "images"
+    t.string   "postUrl"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -3,7 +3,7 @@
 require 'open-uri'
 
 class Post < ActiveRecord::Base
-  attr_accessible :content, :time, :title, :images
+  attr_accessible :content, :time, :title, :images, :postUrl
 
   def fetch
     main_url = "http://eee.hbut.edu.cn/"

@@ -1,19 +1,21 @@
+#!/bin/env ruby  
+# encoding: utf-8
 require 'open-uri'
 
 class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    # @posts = Post.all
-    returnStr = params[:echostr]
+    @posts = Post.all
+    # returnStr = params[:echostr]
 
-    render text: returnStr 
+    # render text: returnStr 
 
-    # respond_to do |format|
-    #   format.html # index.html.erb
-    #   format.text text: "Hello"
-    #   format.json { render json: @posts }
-    # end
+    respond_to do |format|
+      format.html # index.html.erb
+      # format.text text: "Hello"
+      format.json { render json: @posts }
+    end
   end
 
   # GET /posts/1
@@ -30,35 +32,33 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.json
   def new
-    # main_url = "http://eee.hbut.edu.cn/"
+    main_url = "http://eee.hbut.edu.cn/"
 
-    # for i in 1..14
-    #   my_url = "http://eee.hbut.edu.cn/html/ZXZX/XWZX/list_16_"+ i.to_s + ".html"
-    #   html = open(my_url).read
-    #   doc = Nokogiri::HTML(html)
+    for i in 1..14
+      my_url = "http://eee.hbut.edu.cn/html/ZXZX/XWZX/list_16_"+ i.to_s + ".html"
+      html = open(my_url).read
+      doc = Nokogiri::HTML(html)
 
-    #   doc.css('table')[1].css('tr')[2].css('table')[3].css('tr')[3].css('table')[0].css('a').each do |link|
-    #     p = Post.new
+      doc.css('table')[1].css('tr')[2].css('table')[3].css('tr')[3].css('table')[0].css('a').each do |link|
+        p = Post.new
 
-    #     post_url = main_url + link['href']
-    #     html = open(post_url).read
-    #     doc = Nokogiri::HTML(html)
-    #     break if doc.to_s.length < 1000
-    #     post = doc.css('table')[1].css('tr')[2].css('table')[3].css('tr')[3].css('table')[0]
-    #     p.title = post.css('td')[1].content
-    #     p.time  = post.css('td')[2].content
-    #     p.content = post.css('tr')[4].content
-    #     p.images = ""
-    #     # puts "Time   :" + post.css('td')[2].content
-    #     # puts "Content:" + post.css('tr')[4].content
-    #     # puts "Images :"
-    #     post.css('img').each do |img|
-    #       img['src'] = main_url + img['src'] unless img['src'].include?"http://"
-    #       p.images = p.images + "," + img['src']
-    #     end
-    #     p.save
-    #   end
-    # end
+        post_url = main_url + link['href']
+        html = open(post_url).read
+        doc = Nokogiri::HTML(html)
+        break if doc.to_s.length < 1000
+        post = doc.css('table')[1].css('tr')[2].css('table')[3].css('tr')[3].css('table')[0]
+        p.postUrl = post_url
+        p.title = post.css('td')[1].content
+        p.time  = post.css('td')[2].content.to_s.sub(/发布时间：/,"").sub(/    浏览次数：     〖返回列表〗/,"")
+        p.content = post.css('tr')[4].content
+        p.images = ""
+        post.css('img').each do |img|
+          img['src'] = main_url + img['src'] unless img['src'].include?"http://"
+          p.images = p.images + "," + img['src']
+        end
+        p.save
+      end
+    end
 
     # respond_to do |format|
     #   format.html # new.html.erb
