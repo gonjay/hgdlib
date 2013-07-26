@@ -3,6 +3,8 @@ Myblog::Application.routes.draw do
 
   resources :robots
 
+  resources :messages
+
   resources :blogs
   root to: 'books#index'
   get 'books/openlink', controller: 'books'

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ToUserName: MyString
+  FromUserName: MyString
+  CreateTime: MyString
+  MsgType: MyString
+  Content: 
+  FuncFlag: 1
+
+two:
+  ToUserName: MyString
+  FromUserName: MyString
+  CreateTime: MyString
+  MsgType: MyString
+  Content: 
+  FuncFlag: 1
