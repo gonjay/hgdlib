@@ -3,7 +3,9 @@ Myblog::Application.routes.draw do
 
   resources :robots
 
-  resources :messages
+  resources :messages do
+    get :finish_queue, on: :member
+  end
 
   resources :blogs
   root to: 'books#index'

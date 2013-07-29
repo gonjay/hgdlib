@@ -1,0 +1,30 @@
+<div class="mycontainer">
+	<table class="table">
+		<tr>Messages</tr>
+		<tr>
+
+			<th>UserName</th>
+			<th>Content</th>
+			<th class="hidden-phone">CreateTime</th>
+			<th class="hidden-phone">FuncFlag</th>
+			<th class="hidden-phone">MsgType</th>
+			<th class="hidden-phone">ToUserName</th>
+			<th>控制</th>
+
+		</tr>
+		<% @messages.each do |me| %>
+		<tr>
+			<td><%= me.FromUserName %></td>
+			<td><%= me.Content %></td>
+			<td class="hidden-phone"><%= me.CreateTime %></td>
+			<td class="hidden-phone"><%= me.FuncFlag %></td>
+			<td class="hidden-phone"><%= me.MsgType %></td>
+			<td class="hidden-phone"><%= me.ToUserName %></td>
+			<td>
+				<%= link_to "完成", finish_queue_message_path(me), class:"btn"  %>
+			</td>
+
+			<% end %>
+		</tr>
+	</table>
+</div>

@@ -5,8 +5,9 @@ class CreateMessages < ActiveRecord::Migration
       t.string :FromUserName
       t.string :CreateTime
       t.string :MsgType
-      t.content :Content
+      t.text :Content
       t.integer :FuncFlag
+      t.boolean :Status
 
       t.timestamps
     end
