@@ -26,7 +26,8 @@ class RobotsController < ApplicationController
         CreateTime: params[:xml][:CreateTime],
         MsgType: params[:xml][:MsgType],
         FuncFlag: params[:xml][:FuncFlag],
-        Status: true) # 'true' means the person is queuing
+        Status: true)
+         # 'true' means the person is queuing
       
     else 
 
