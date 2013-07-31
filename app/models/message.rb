@@ -48,7 +48,7 @@ class Message < ActiveRecord::Base
   def returnQueueStatus
     subStr1 + "微信排队\n\n
     欢迎来到：江滨路首府甲第大酒店\n
-    现在时间是：#{Time.now.strftime("%Y-%m-%d %H:%M:%S")}\n\n
+    现在时间是：#{Time.zone.now.strftime("%Y-%m-%d %H:%M:%S")}\n\n
     您的号码是：#{self.id}\n
     在你前面有#{frontPeopleNum}位客人。\n" + waitTime + subStr2
   end
